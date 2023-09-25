@@ -1,66 +1,76 @@
 package com.workintech.devComp;
 
-import java.sql.Array;
-
+import java.util.Arrays;
 public class HRManager extends Employee {
+    private JuniorDeveloper[] juniors;
+    private MidDeveloper[] mids;
+    private SeniorDeveloper[] seniors;
+    //private String[] denemeler;
 
-    private final JuniorDeveloper[] juniors;
-    private final MidDeveloper[] mids;
-    private final SeniorDeveloper[] seniors;
-
-    public HRManager(int id, String name, int salary, JuniorDeveloper[] juniors, MidDeveloper[] mids, SeniorDeveloper[] seniors) {
-        super(id, name, salary);
+    public HRManager(long id, String name, JuniorDeveloper[] juniors, MidDeveloper[] mids,
+                     SeniorDeveloper[] seniors) {
+        super(id, name);
         this.juniors = juniors;
         this.mids = mids;
         this.seniors = seniors;
     }
 
-    @Override
-    public void work() {
-        System.out.println("HR Manager old salary: " + getSalary());
-        setSalary(getSalary() + 4000);
-    }
-
     public void addEmployee(int index, JuniorDeveloper juniorDeveloper) {
-        try{
+
+        //juniors[index] != null && juniors[index].getName().contains(juniorDeveloper.getName());
+
+
+        try {
             if (juniors[index] == null) {
                 juniors[index] = juniorDeveloper;
-            }else{
-                System.out.println("Index isn't empty!");
+            } else {
+                System.out.println("Index is full");
             }
-        }catch (ArrayIndexOutOfBoundsException exception){
+        } catch (ArrayIndexOutOfBoundsException exception) {
             exception.printStackTrace();
-            System.out.println("Index not found " + exception.getMessage());
+            System.out.println("Index not found: " + exception.getMessage());
         }
-
-
-
-
-
-
-        System.out.println("Junior Developer full");
     }
 
-    public void addEmployee(MidDeveloper midDeveloper) {
-        for (int i = 0; i < mids.length; i++) {
-            if (mids[i] == null) {
-                mids[i] = midDeveloper;
-                return;
+    public void addEmployee(int index, MidDeveloper midDeveloper) {
+        try {
+            if (mids[index] == null) {
+                mids[index] = midDeveloper;
+            } else {
+                System.out.println("Index is full");
             }
+        } catch (ArrayIndexOutOfBoundsException exception) {
+            exception.printStackTrace();
+            System.out.println("Index not found: " + exception.getMessage());
         }
-
-        System.out.println("Mid Developer full");
     }
 
-    public void addEmployee(SeniorDeveloper seniorDeveloper) {
-        for (int i = 0; i < seniors.length; i++) {
-            if (seniors[i] == null) {
-                seniors[i] = seniorDeveloper;
-                return;
+    public void addEmployee(int index, SeniorDeveloper seniorDeveloper) {
+        try {
+            if (seniors[index] == null) {
+                seniors[index] = seniorDeveloper;
+            } else {
+                System.out.println("Index is full");
             }
+        } catch (ArrayIndexOutOfBoundsException exception) {
+            exception.printStackTrace();
+            System.out.println("Index not found: " + exception.getMessage());
         }
+    }
 
-        System.out.println("Senior Developer full");
+    @Override
+    public void work() {
+        setSalary(70000);
+        System.out.println(getName() + " hr manager begins to work.");
+    }
+
+    @Override
+    public String toString() {
+        return "HRManager{" +
+                "juniors=" + Arrays.toString(juniors) +
+                ", mids=" + Arrays.toString(mids) +
+                ", seniors=" + Arrays.toString(seniors) +
+                '}';
     }
 
 
