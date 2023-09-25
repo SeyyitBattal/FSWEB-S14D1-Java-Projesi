@@ -1,17 +1,11 @@
 package com.workintech.Silindir;
 
-public class Circle extends Cylinder {
+public class Circle {
+
     private double radius;
 
-
-    private Circle(double height, double radius){
-        super(height);
-        this.radius = radius;
-    }
-
-
-    public double getArea (double radius){
-        return (Math.pow(radius,2) * Math.PI);
+    public Circle(double radius) {
+        this.radius = radius > 0 ? radius : 0;
     }
 
     public double getRadius() {
@@ -19,12 +13,10 @@ public class Circle extends Cylinder {
     }
 
     public void setRadius(double radius) {
-        if (radius < 0) {
-            this.radius = 0;
-        } else {
-            this.radius = radius;
-        }
+        this.radius = radius > 0 ? radius : 0;
     }
 
-
+    public double getArea() {
+        return radius * radius * Math.PI;
+    }
 }
