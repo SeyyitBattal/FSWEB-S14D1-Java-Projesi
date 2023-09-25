@@ -1,16 +1,13 @@
 package com.workintech.devComp;
 
-public class SeniorDeveloper extends HRManager {
-
-    public SeniorDeveloper(int id, String name, double salary) {
+public class SeniorDeveloper extends Employee{
+    public SeniorDeveloper(int id, String name, int salary) {
         super(id, name, salary);
-        setSalary(45000);
     }
 
     @Override
     public void work() {
-        System.out.println("Senior starts to working");
+        System.out.println("Senior Developer");
+        setSalary(getSalary() + 10000);
     }
-
-
 }

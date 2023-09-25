@@ -4,24 +4,54 @@ import java.sql.Array;
 
 public class HRManager extends Employee {
 
-    private String[] JuniorDeveloper;
-    private String[] MidDeveloper;
-    private String[] SeniorDeveloper;
+    private JuniorDeveloper[] juniorDevelopers;
+    private MidDeveloper[] midDevelopers;
+    private SeniorDeveloper[] seniorDevelopers;
 
-    public HRManager(int id, String name, double salary) {
+    public HRManager(int id, String name, int salary) {
         super(id, name, salary);
-        setSalary(50000);
-    }
-
-    public void addEmployee(String[] JuniorDeveloper, String[] MidDeveloper, String[] SeniorDeveloper) {
-        this.JuniorDeveloper = JuniorDeveloper;
-        this.MidDeveloper = MidDeveloper;
-        this.SeniorDeveloper = SeniorDeveloper;
+        juniorDevelopers = new JuniorDeveloper[3];
+        midDevelopers = new MidDeveloper[3];
+        seniorDevelopers = new SeniorDeveloper[3];
     }
 
     @Override
     public void work() {
-        System.out.println("HR Manager starts to working");
+        System.out.println("HR Manager");
+        setSalary(getSalary() + 3500);
+    }
+
+    public void addEmployee(JuniorDeveloper juniorDeveloper) {
+        for(int i = 0; i < juniorDevelopers.length; i++) {
+            if (juniorDevelopers[i] == null) {
+                juniorDevelopers[i] = juniorDeveloper;
+                return;
+            }
+        }
+
+        System.out.println("Junior Developer full");
+    }
+
+    public void addEmployee(MidDeveloper midDeveloper) {
+        for(int i = 0; i < midDevelopers.length; i++) {
+            if (midDevelopers[i] == null) {
+                midDevelopers[i] = midDeveloper;
+                return;
+            }
+        }
+
+        System.out.println("Mid Developer full");
+    }
+
+    public void addEmployee(SeniorDeveloper seniorDeveloper) {
+        for(int i = 0; i < seniorDevelopers.length; i++) {
+            if (seniorDevelopers[i] == null) {
+                seniorDevelopers[i] = seniorDeveloper;
+                return;
+            }
+        }
+
+        System.out.println("Senior Developer full");
     }
 
 
