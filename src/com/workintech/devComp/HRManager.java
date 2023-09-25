@@ -4,15 +4,15 @@ import java.sql.Array;
 
 public class HRManager extends Employee {
 
-    private final JuniorDeveloper[] juniorDevelopers;
-    private final MidDeveloper[] midDevelopers;
-    private final SeniorDeveloper[] seniorDevelopers;
+    private final JuniorDeveloper[] juniors;
+    private final MidDeveloper[] mids;
+    private final SeniorDeveloper[] seniors;
 
-    public HRManager(int id, String name, int salary) {
+    public HRManager(int id, String name, int salary, JuniorDeveloper[] juniors, MidDeveloper[] mids, SeniorDeveloper[] seniors) {
         super(id, name, salary);
-        juniorDevelopers = new JuniorDeveloper[3];
-        midDevelopers = new MidDeveloper[3];
-        seniorDevelopers = new SeniorDeveloper[3];
+        this.juniors = juniors;
+        this.mids = mids;
+        this.seniors = seniors;
     }
 
     @Override
@@ -21,21 +21,30 @@ public class HRManager extends Employee {
         setSalary(getSalary() + 4000);
     }
 
-    public void addEmployee(JuniorDeveloper juniorDeveloper) {
-        for(int i = 0; i < juniorDevelopers.length; i++) {
-            if (juniorDevelopers[i] == null) {
-                juniorDevelopers[i] = juniorDeveloper;
-                return;
+    public void addEmployee(int index, JuniorDeveloper juniorDeveloper) {
+        try{
+            if (juniors[index] == null) {
+                juniors[index] = juniorDeveloper;
+            }else{
+                System.out.println("Index isn't empty!");
             }
+        }catch (ArrayIndexOutOfBoundsException exception){
+            exception.printStackTrace();
+            System.out.println("Index not found " + exception.getMessage());
         }
+
+
+
+
+
 
         System.out.println("Junior Developer full");
     }
 
     public void addEmployee(MidDeveloper midDeveloper) {
-        for(int i = 0; i < midDevelopers.length; i++) {
-            if (midDevelopers[i] == null) {
-                midDevelopers[i] = midDeveloper;
+        for (int i = 0; i < mids.length; i++) {
+            if (mids[i] == null) {
+                mids[i] = midDeveloper;
                 return;
             }
         }
@@ -44,9 +53,9 @@ public class HRManager extends Employee {
     }
 
     public void addEmployee(SeniorDeveloper seniorDeveloper) {
-        for(int i = 0; i < seniorDevelopers.length; i++) {
-            if (seniorDevelopers[i] == null) {
-                seniorDevelopers[i] = seniorDeveloper;
+        for (int i = 0; i < seniors.length; i++) {
+            if (seniors[i] == null) {
+                seniors[i] = seniorDeveloper;
                 return;
             }
         }
