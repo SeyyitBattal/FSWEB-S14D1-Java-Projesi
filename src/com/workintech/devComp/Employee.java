@@ -35,6 +35,7 @@ public class Employee {
         this.salary = salary;
     }
 
+
     public void work() {
         System.out.println("Employee starts to working");
     }
