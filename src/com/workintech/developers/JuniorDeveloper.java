@@ -1,4 +1,4 @@
-package com.workintech.devComp;
+package com.workintech.developers;
 
 public class JuniorDeveloper extends Employee{
     public JuniorDeveloper(long id, String name) {

@@ -1,4 +1,4 @@
-package com.workintech.devComp;
+package com.workintech.developers;
 
 public class MidDeveloper extends Employee{
     public MidDeveloper(long id, String name) {

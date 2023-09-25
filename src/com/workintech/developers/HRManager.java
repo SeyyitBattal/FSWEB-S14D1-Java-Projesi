@@ -1,7 +1,10 @@
-package com.workintech.devComp;
+package com.workintech.developers;
 
 import java.util.Arrays;
+
 public class HRManager extends Employee {
+
+    //[null, null, null, null]
     private JuniorDeveloper[] juniors;
     private MidDeveloper[] mids;
     private SeniorDeveloper[] seniors;
@@ -72,6 +75,4 @@ public class HRManager extends Employee {
                 ", seniors=" + Arrays.toString(seniors) +
                 '}';
     }
-
-
 }
