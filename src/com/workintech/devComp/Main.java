@@ -5,8 +5,7 @@ public class Main {
         System.out.println("\nDEVELOPER COMPANY\n");
 
         HRManager hrManager = new HRManager(1, "Doğancan Kınık", 5000);
-
-        JuniorDeveloper juniorDeveloper = new JuniorDeveloper(2, "Oğuzhan", 1000);
+        JuniorDeveloper juniorDeveloper = new JuniorDeveloper(2, "Battal", 1000);
         MidDeveloper midDeveloper = new MidDeveloper(3, "Emre", 2500);
         SeniorDeveloper seniorDeveloper = new SeniorDeveloper(4, "Serkan", 3000);
 

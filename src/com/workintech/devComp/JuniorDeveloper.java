@@ -8,6 +8,6 @@ public class JuniorDeveloper extends Employee{
     @Override
     public void work() {
         System.out.println("Junior Developer");
-        setSalary(getSalary() + 2000);
+        setSalary(getSalary() + 1000);
     }
 }

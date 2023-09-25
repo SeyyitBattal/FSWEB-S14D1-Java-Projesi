@@ -8,6 +8,6 @@ public class MidDeveloper extends Employee {
     @Override
     public void work() {
         System.out.println("Mid Developer");
-        setSalary(getSalary() + 5000);
+        setSalary(getSalary() + 2000);
     }
 }

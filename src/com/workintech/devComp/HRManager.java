@@ -4,9 +4,9 @@ import java.sql.Array;
 
 public class HRManager extends Employee {
 
-    private JuniorDeveloper[] juniorDevelopers;
-    private MidDeveloper[] midDevelopers;
-    private SeniorDeveloper[] seniorDevelopers;
+    private final JuniorDeveloper[] juniorDevelopers;
+    private final MidDeveloper[] midDevelopers;
+    private final SeniorDeveloper[] seniorDevelopers;
 
     public HRManager(int id, String name, int salary) {
         super(id, name, salary);
@@ -17,8 +17,8 @@ public class HRManager extends Employee {
 
     @Override
     public void work() {
-        System.out.println("HR Manager");
-        setSalary(getSalary() + 3500);
+        System.out.println("HR Manager old salary: " + getSalary());
+        setSalary(getSalary() + 4000);
     }
 
     public void addEmployee(JuniorDeveloper juniorDeveloper) {
